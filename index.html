@@ -454,9 +454,27 @@
               UniCom: Unified Multimodal Understanding and Generation <br>via Compressed Continuous Representation
             </h1>
             
-            <!-- Anonymous Authors -->
-            <div class="is-size-5 publication-authors" style="color: rgba(255,255,255,0.9);">
-              <span class="author-block">Anonymous Authors</span>
+            <!-- Authors -->
+            <div class="is-size-5 publication-authors" style="color: rgba(255,255,255,0.95);">
+              <span class="author-block">
+                Yaqi Zhao<sup>1,3*</sup>,
+                Wang Lin<sup>2,3*</sup>,
+                Zijian Zhang<sup>3</sup>,
+                Miles Yang<sup>3</sup>,
+                Zhao Zhong<sup>3</sup>,
+                Liefeng Bo<sup>3</sup>,
+                Jingyuan Chen<sup>2†</sup>,
+                Wentao Zhang<sup>1†</sup>
+              </span>
+            </div>
+            <div class="is-size-6 publication-authors" style="color: rgba(255,255,255,0.85); margin-top: 10px;">
+              <span class="author-block"><sup>1</sup>Peking University</span> &nbsp;&nbsp;
+              <span class="author-block"><sup>2</sup>Zhejiang University</span> &nbsp;&nbsp;
+              <span class="author-block"><sup>3</sup>Tencent Hunyuan</span>
+            </div>
+            <div style="color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-top: 5px;">
+              <span>* Equal contribution</span> &nbsp;&nbsp;
+              <span>† Corresponding authors</span>
             </div>
 
             <!-- Links -->
@@ -881,11 +899,12 @@
       <!-- Table 2: Image Editing Results -->
       <div class="columns is-centered">
         <div class="column is-12">
-          <h3 class="title is-4">Table 2: Image Editing Comparison</h3>
+          <h3 class="title is-4">Table 2: Image Editing Results</h3>
           <p class="table-caption">
-            Comparison of image editing capabilities on ImgEdit-Bench, GEdit-Bench, WorldEdit and KRIS-Bench. 
+            Comparison of image editing capabilities on ImgEdit-Bench, GEdit-Bench, KRIS-Bench and WorldEdit. 
             For ImgEdit-Bench, performance is evaluated across nine distinct operation categories (e.g., 'Add', 'Adjust', 'Extract', 'Replace', 'Remove', 'Background', 'Style', 'Hybrid', and 'Action').
             For GEdit-Bench, metrics include 'G-Semantic Consistency' (G-SC) and 'G-Perceptual Quality' (G-PQ).
+            For KRIS-Bench, we report Factual (Fact.), Conceptual (Conc.), and Procedural (Proc.) knowledge scores.
           </p>
           <div class="results-table-container">
             <table class="results-table">
@@ -894,8 +913,8 @@
                   <th rowspan="2">Models</th>
                   <th colspan="10" class="header-group">ImgEdit-Bench</th>
                   <th colspan="3" class="header-group">GEdit-Bench</th>
+                  <th colspan="4" class="header-group">KRIS-Bench</th>
                   <th class="header-group">WorldEdit</th>
-                  <th class="header-group">KRIS</th>
                 </tr>
                 <tr>
                   <th>Add</th>
@@ -911,6 +930,9 @@
                   <th>G-SC</th>
                   <th>G-PQ</th>
                   <th>G-Overall</th>
+                  <th>Fact.</th>
+                  <th>Conc.</th>
+                  <th>Proc.</th>
                   <th>Overall</th>
                   <th>Overall</th>
                 </tr>
@@ -918,99 +940,106 @@
               <tbody>
                 <!-- Generation-only Models -->
                 <tr class="section-row">
-                  <td colspan="16"><em>Generation-only Models</em></td>
+                  <td colspan="19"><em>Generation-only Models</em></td>
                 </tr>
                 <tr>
                   <td class="model-name">FLUX.1 Kontext [Pro]</td>
                   <td>4.25</td><td>4.15</td><td>2.35</td><td>4.56</td><td>3.57</td><td>4.26</td><td>4.57</td><td>3.68</td><td>4.63</td><td>4.00</td>
-                  <td>7.02</td><td>7.60</td><td>6.56</td>
-                  <td>3.21</td><td>54.17</td>
+                  <td>7.02</td><td class="second-best">7.60</td><td>6.56</td>
+                  <td>57.22</td><td>55.06</td><td>46.69</td><td>54.17</td>
+                  <td class="second-best">3.21</td>
                 </tr>
                 <tr>
                   <td class="model-name">Qwen-Image</td>
-                  <td>4.38</td><td>4.16</td><td class="best-result">3.43</td><td class="second-best">4.66</td><td>4.14</td><td>4.38</td><td class="second-best">4.81</td><td>3.82</td><td class="second-best">4.69</td><td class="second-best">4.27</td>
+                  <td class="second-best">4.38</td><td class="second-best">4.16</td><td class="best-result">3.43</td><td class="second-best">4.66</td><td>4.14</td><td class="second-best">4.38</td><td class="best-result">4.81</td><td class="second-best">3.82</td><td class="best-result">4.69</td><td class="second-best">4.27</td>
                   <td class="second-best">8.00</td><td class="best-result">7.86</td><td class="best-result">7.56</td>
-                  <td>-</td><td>-</td>
+                  <td>-</td><td>-</td><td>-</td><td>-</td>
+                  <td>-</td>
                 </tr>
                 <!-- Specialized Editing Models -->
                 <tr class="section-row">
-                  <td colspan="16"><em>Specialized Editing Models</em></td>
+                  <td colspan="19"><em>Specialized Editing Models</em></td>
                 </tr>
                 <tr>
                   <td class="model-name">Instruct-Pix2Pix</td>
                   <td>2.45</td><td>1.83</td><td>1.44</td><td>2.01</td><td>1.50</td><td>1.44</td><td>3.55</td><td>1.20</td><td>1.46</td><td>1.88</td>
                   <td>3.58</td><td>5.49</td><td>3.68</td>
-                  <td>2.44</td><td>22.82</td>
+                  <td>23.33</td><td>25.59</td><td>17.28</td><td>22.82</td>
+                  <td>2.44</td>
                 </tr>
                 <tr>
                   <td class="model-name">MagicBrush</td>
                   <td>2.84</td><td>1.58</td><td>1.51</td><td>1.97</td><td>1.58</td><td>1.75</td><td>2.38</td><td>1.62</td><td>1.22</td><td>1.83</td>
                   <td>4.68</td><td>5.66</td><td>4.52</td>
-                  <td>2.14</td><td>37.15</td>
+                  <td>41.84</td><td>39.24</td><td>26.54</td><td>37.15</td>
+                  <td>2.14</td>
                 </tr>
                 <tr>
                   <td class="model-name">AnyEdit</td>
                   <td>3.18</td><td>2.95</td><td>1.88</td><td>2.47</td><td>2.23</td><td>2.24</td><td>2.85</td><td>1.56</td><td>2.65</td><td>2.45</td>
                   <td>3.18</td><td>5.82</td><td>3.21</td>
-                  <td>2.09</td><td>38.55</td>
+                  <td>39.26</td><td>41.88</td><td>31.74</td><td>38.55</td>
+                  <td>2.09</td>
                 </tr>
                 <tr>
                   <td class="model-name">Step1X-Edit</td>
                   <td>3.88</td><td>3.14</td><td>1.76</td><td>3.40</td><td>2.41</td><td>3.16</td><td>4.63</td><td>2.64</td><td>2.52</td><td>3.06</td>
                   <td>7.09</td><td>6.76</td><td>6.70</td>
-                  <td>-</td><td>43.29</td>
+                  <td>45.52</td><td>48.01</td><td>31.82</td><td>43.29</td>
+                  <td>-</td>
                 </tr>
                 <!-- Unified Multimodal Models -->
                 <tr class="section-row">
-                  <td colspan="16"><em>Unified Multimodal Models</em></td>
+                  <td colspan="19"><em>Unified Multimodal Models</em></td>
                 </tr>
                 <tr>
                   <td class="model-name">OmniGen</td>
                   <td>3.47</td><td>3.04</td><td>1.71</td><td>2.94</td><td>2.43</td><td>3.21</td><td>4.19</td><td>2.24</td><td>3.38</td><td>2.96</td>
                   <td>5.96</td><td>5.89</td><td>5.06</td>
-                  <td>2.52</td><td>28.85</td>
+                  <td>33.11</td><td>28.02</td><td>23.89</td><td>28.85</td>
+                  <td>2.52</td>
                 </tr>
                 <tr>
                   <td class="model-name">Ming-Univision</td>
                   <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
                   <td>6.04</td><td>6.86</td><td>5.54</td>
-                  <td>-</td><td>-</td>
+                  <td>-</td><td>-</td><td>-</td><td>-</td>
+                  <td>-</td>
                 </tr>
                 <tr>
                   <td class="model-name">BAGEL</td>
                   <td>3.56</td><td>3.31</td><td>1.70</td><td>3.30</td><td>2.62</td><td>3.24</td><td>4.49</td><td>2.38</td><td>4.17</td><td>3.20</td>
                   <td>7.36</td><td>6.83</td><td>6.52</td>
-                  <td>2.76</td><td>56.21</td>
+                  <td class="second-best">60.26</td><td class="second-best">55.86</td><td class="second-best">51.69</td><td class="second-best">56.21</td>
+                  <td>2.76</td>
                 </tr>
                 <tr>
                   <td class="model-name">UniWorld-V1</td>
                   <td>3.82</td><td>3.64</td><td>2.27</td><td>3.47</td><td>3.24</td><td>2.99</td><td>4.21</td><td>2.96</td><td>2.74</td><td>3.26</td>
                   <td>4.93</td><td>7.43</td><td>4.85</td>
-                  <td>-</td><td>-</td>
+                  <td>-</td><td>-</td><td>-</td><td>-</td>
+                  <td>-</td>
                 </tr>
                 <tr>
                   <td class="model-name">OmniGen2</td>
-                  <td>3.57</td><td>3.06</td><td>1.77</td><td>3.74</td><td>3.20</td><td>3.57</td><td class="second-best">4.81</td><td>2.52</td><td>4.68</td><td>3.44</td>
+                  <td>3.57</td><td>3.06</td><td>1.77</td><td>3.74</td><td>3.20</td><td>3.57</td><td class="best-result">4.81</td><td>2.52</td><td class="second-best">4.68</td><td>3.44</td>
                   <td>7.16</td><td>6.77</td><td>6.41</td>
-                  <td>2.51</td><td>49.71</td>
-                </tr>
-                <tr>
-                  <td class="model-name">GPT-4o</td>
-                  <td class="best-result">4.61</td><td class="second-best">4.33</td><td>2.90</td><td>4.35</td><td>3.66</td><td class="best-result">4.57</td><td class="best-result">4.93</td><td class="second-best">3.96</td><td class="best-result">4.89</td><td>4.20</td>
-                  <td>7.85</td><td class="second-best">7.62</td><td class="second-best">7.53</td>
-                  <td class="best-result">4.36</td><td class="best-result">80.09</td>
+                  <td>57.36</td><td>44.20</td><td>47.79</td><td>49.71</td>
+                  <td>2.51</td>
                 </tr>
                 <tr>
                   <td class="model-name">TUNA</td>
-                  <td class="second-best">4.46</td><td class="best-result">4.52</td><td>2.47</td><td class="best-result">4.68</td><td class="best-result">4.58</td><td class="second-best">4.56</td><td>4.73</td><td class="best-result">4.07</td><td class="second-best">4.69</td><td class="best-result">4.31</td>
+                  <td class="best-result">4.46</td><td class="best-result">4.52</td><td>2.47</td><td class="best-result">4.68</td><td class="best-result">4.58</td><td class="best-result">4.56</td><td>4.73</td><td class="best-result">4.07</td><td class="best-result">4.69</td><td class="best-result">4.31</td>
                   <td>7.79</td><td>7.48</td><td>7.29</td>
-                  <td>-</td><td>-</td>
+                  <td>-</td><td>-</td><td>-</td><td>-</td>
+                  <td>-</td>
                 </tr>
                 <tr class="ours-row">
                   <td class="model-name"><strong>UniCom (Ours)</strong></td>
-                  <td>4.36</td><td>4.04</td><td class="second-best">3.30</td><td>4.63</td><td class="second-best">4.40</td><td>4.24</td><td>4.79</td><td>3.54</td><td class="second-best">4.69</td><td>4.22</td>
-                  <td class="best-result">8.06</td><td>7.33</td><td>7.32</td>
-                  <td class="second-best">4.35</td><td class="second-best">69.85</td>
+                  <td>4.36</td><td>4.04</td><td class="second-best">3.30</td><td>4.63</td><td class="second-best">4.40</td><td>4.24</td><td class="second-best">4.79</td><td>3.54</td><td class="best-result">4.69</td><td>4.22</td>
+                  <td class="best-result">8.06</td><td>7.33</td><td class="second-best">7.32</td>
+                  <td class="best-result">74.63</td><td class="best-result">69.48</td><td class="best-result">65.30</td><td class="best-result">70.11</td>
+                  <td class="best-result">4.35</td>
                 </tr>
               </tbody>
             </table>
